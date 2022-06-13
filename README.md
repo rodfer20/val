@@ -1,10 +1,6 @@
-# cpp_engine
+# val
 
-- Compile and run
 ````bash
-mkdir build
-cd build
-cmake ..
 make
-
+bin/val
 ````
