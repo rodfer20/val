@@ -5,15 +5,15 @@
 
 Renderer::Renderer()
 {
-    msgSuccess = "RENDERER SUCCESS";
+    msg = "SUCCESS";
 }
 
-void Renderer::printSuccess(void)
+void Renderer::printCreate(void)
 {
-    std::cout << msgSuccess << std::endl;
+    std::cout << msg << std::endl;
 }
 
-std::string Renderer::testSuccess(void)
+std::string Renderer::testCreate(void)
 {
-    return msgSuccess;
+    return msg;
 }

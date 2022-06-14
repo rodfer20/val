@@ -6,14 +6,14 @@
 class Renderer
 {
     private:
-        std::string msgSuccess;
+        std::string msg;
     
     public:
         Renderer();
 
         // Catch2 test methods
-        std::string testSuccess(void);
+        std::string testCreate(void);
         
         // IO methods
-        void printSuccess(void);
+        void printCreate(void);
 };

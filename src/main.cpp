@@ -5,7 +5,6 @@
 int main(void)
 {
     Renderer renderer = Renderer();
-    renderer.testSuccess();
-    renderer.printSuccess();
+    renderer.printCreate();
     return EXIT_SUCCESS;
 }

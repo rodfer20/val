@@ -1,7 +1,11 @@
 #define CATCH_CONFIG_MAIN
 #include "../include/catch2/catch.hpp"
 
-TEST_CASE("Renderer success run")
+
+#include "../include/val/renderer.hpp"
+
+TEST_CASE("Test renderer connection")
 {
-    REQUIRE(testRendererSuccess() == "RENDERER SUCCESS");
+    Renderer renderer = Renderer();
+    REQUIRE(renderer.testCreate() == "SUCCESS");
 }
