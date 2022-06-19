@@ -1,14 +1,8 @@
 # val
 
-## Compile and run
+### Compile and run
 ````bash
-make
-bin/val
-````
-
-## Test and run tests
-````bash
-make test
-bin/test_val
-````
-
+mkdir build 
+cd build
+cmake ..
+cmake --build .
