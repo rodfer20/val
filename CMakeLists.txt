@@ -3,7 +3,7 @@ set(CMAKE_CXX_STANDARD 11)
 
 project(val)
 set(INCLUDE include/val)
-#set(INCLUDE_TEST include/val)
+#set(INCLUDE_TEST include/catch2)
 set(SRC src)
 #set(TEST test)
 
@@ -18,7 +18,8 @@ target_include_directories(val PUBLIC ${INCLUDE})
 
 # Compile tests
 #add_executable(val_test ${TEST}/test.cpp ${SOURCES})
-#target_include_directories(val PUBLIC ${INCLUDE_TEST})
+#target_include_directories(val_test PUBLIC ${INCLUDE})
+#target_include_directories(val_test PUBLIC ${INCLUDE_TEST})
 
 # FindSDL2
 find_package(SDL2 REQUIRED)

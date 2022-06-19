@@ -1,8 +1,7 @@
 #define CATCH_CONFIG_MAIN
-#include "../include/catch2/catch.hpp"
 
-
-#include "../include/val/renderer.hpp"
+#include "catch.hpp"
+#include "renderer.hpp"
 
 TEST_CASE("Test renderer connection")
 {
