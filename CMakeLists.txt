@@ -1,31 +1,38 @@
 cmake_minimum_required(VERSION 3.10)
 set(CMAKE_CXX_STANDARD 11)
+
 project(val)
-
-find_package(SDL2 REQUIRED)
-include_directories(/lib/SDL2)
-target_link_libraries(val /lib/SDL2/SDL2)
-
-set(SOURCE src)
 set(INCLUDE include/val)
+#set(INCLUDE_TEST include/val)
+set(SRC src)
+#set(TEST test)
 
-set(TEST test)
-set(INCLUDE_TEST include/catch2)
+# Source code
+set(SOURCES 
+    ${SRC}/renderer.cpp ${INCLUDE}/renderer.hpp
+)
 
-set(HEADERS ${SOURCE}/renderer.cpp ${INCLUDE}/renderer.hpp)
-
-add_executable(val_test ${TEST}/test.cpp ${HEADERS})
-
-add_executable(val ${SOURCE}/main.cpp ${HEADERS})
+# Compile main
+add_executable(val ${SRC}/main.cpp ${SOURCES})
 target_include_directories(val PUBLIC ${INCLUDE})
 
-enable_testing()
-add_test(NAME BinRun COMMAND val)
-set_tests_properties(BinRun
-    PROPERTIES PASS_REGULAR_EXPRESSION "SUCCESS"
-)
-add_test(NAME UnitTest COMMAND val_test)
-set_tests_properties(UnitTest
-    PROPERTIES PASS_REGULAR_EXPRESSION "All tests passed"
-  )
+# Compile tests
+#add_executable(val_test ${TEST}/test.cpp ${SOURCES})
+#target_include_directories(val PUBLIC ${INCLUDE_TEST})
+
+# FindSDL2
+find_package(SDL2 REQUIRED)
+include_directories(${SDL2_INCLUDE_DIRS})
+target_link_libraries(val ${SDL2_LIBRARIES})
+
+# Execution test suite
+#enable_testing()
+#add_test(NAME BinRun COMMAND val)
+#set_tests_properties(BinRun
+#    PROPERTIES PASS_REGULAR_EXPRESSION "SUCCESS"
+#)
+#add_test(NAME UnitTest COMMAND val_test)
+#set_tests_properties(UnitTest
+#    PROPERTIES PASS_REGULAR_EXPRESSION "All tests passed"
+#)
 
