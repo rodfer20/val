@@ -1,12 +1,12 @@
 #pragma once
 
+#include "SDL.h"
 #include <string>
 
 
 class Renderer
 {
     private:
-        std::string msg;
     
     public:
         Renderer();
@@ -15,5 +15,5 @@ class Renderer
         std::string testCreate(void);
         
         // IO methods
-        void printCreate(void);
+        void screenDraw(void);
 };
