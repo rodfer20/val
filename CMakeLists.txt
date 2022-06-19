@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.10)
 set(CMAKE_CXX_STANDARD 11)
 project(val)
 
+find_package(SDL2 REQUIRED)
+include_directories(/lib/SDL2)
+target_link_libraries(val /lib/SDL2/SDL2)
+
 set(SOURCE src)
 set(INCLUDE include/val)
 
