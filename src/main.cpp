@@ -44,7 +44,13 @@ int main(int argc, char* args[])
             SDL_Delay(3000);
         }
     }
-    
+   
+    //Destroy window
+    SDL_DestroyWindow( window );
+
+    //Quit SDL subsystems
+    SDL_Quit();
+
     return EXIT_SUCCESS;
 }
 
