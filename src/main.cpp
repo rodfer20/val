@@ -8,11 +8,9 @@ const int SCREEN_HEIGHT = 480;
 
 int main(int argc, char* args[])
 {
-    //The window we'll be rendering to
     SDL_Window* window = NULL;
-    
-    //The surface contained by the window
     SDL_Surface* screenSurface = NULL;
+    SDL_Event event;
 
     //Initialize SDL
     if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
@@ -23,7 +21,6 @@ int main(int argc, char* args[])
     {
         //Create window
         window = SDL_CreateWindow("val", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
-        SDL_Delay(100);
         
         if( window == NULL )
         {
@@ -31,26 +28,20 @@ int main(int argc, char* args[])
         }    
         else
         {
-            //Get window surface
-            screenSurface = SDL_GetWindowSurface(window);
-
             //Fill the surface white
+            screenSurface = SDL_GetWindowSurface(window);
             SDL_FillRect(screenSurface, NULL, SDL_MapRGB( screenSurface->format, 0xFF, 0xFF, 0xFF));
-            
-            //Update the surface
             SDL_UpdateWindowSurface(window);
-
-            //Wait two seconds
+            
+            while(SDL_PollEvent(&event)) {
+                // do nothing
+            }
             SDL_Delay(3000);
         }
     }
-   
-    //Destroy window
     SDL_DestroyWindow( window );
-
-    //Quit SDL subsystems
+    
     SDL_Quit();
-
     return EXIT_SUCCESS;
 }
 

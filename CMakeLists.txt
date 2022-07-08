@@ -2,18 +2,18 @@ cmake_minimum_required(VERSION 3.10)
 set(CMAKE_CXX_STANDARD 11)
 
 project(val)
-set(INCLUDE include/val)
+set(INCLUDE include/val/)
 #set(INCLUDE_TEST include/catch2)
-set(SRC src)
+set(SRC src/)
 #set(TEST test)
 
 # Source code
 set(SOURCES 
-    ${SRC}/renderer.cpp ${INCLUDE}/renderer.hpp
+    ${SRC}renderer.cpp ${INCLUDE}renderer.hpp
 )
 
 # Compile main
-add_executable(val ${SRC}/main.cpp ${SOURCES})
+add_executable(val ${SRC}main.cpp ${SOURCES})
 target_include_directories(val PUBLIC ${INCLUDE})
 
 # Compile tests
